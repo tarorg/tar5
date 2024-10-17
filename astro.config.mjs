@@ -9,7 +9,7 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  output: 'server',
+  output: 'static', // Change this to 'static' for Capacitor
   adapter: node({
     mode: 'standalone',
   }),

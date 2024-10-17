@@ -12,6 +12,8 @@ import Posts from './pages/Posts.astro';
 import Pathai from './pages/Pathai.astro';
 import Settings from './pages/Settings.astro';
 import Links from './pages/Links.astro';
+import Instances from '../pages/pin/instances.astro';
+import Prod from '../pages/pin/prod.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
 ---
@@ -31,6 +33,8 @@ const pathname = new URL(Astro.request.url).pathname;
       {pathname === '/pathai' && <Pathai />}
       {pathname === '/settings' && <Settings />}
       {pathname === '/links' && <Links />}
+      {pathname === '/pin/instances' && <Instances />}
+      {pathname === '/pin/prod' && <Prod />}
     </main>
   </div>
 </Layout>

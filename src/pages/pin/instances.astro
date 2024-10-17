@@ -28,7 +28,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pin - i</title>
+    <title>Pin - Instances</title>
 </head>
 <body>
     <Menu />
@@ -59,7 +59,7 @@ try {
     </main>
     
     <!-- Floating Action Button -->
-    <button class="fab" aria-label="Add">
+    <button id="fabButton" class="fab" aria-label="Add">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -111,23 +111,22 @@ try {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        background-color: white;
-        color: #6b7280;
-        border: 1px solid #d1d5db;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #007bff;
+        color: white;
+        border: none;
         font-size: 24px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         transition: background-color 0.3s, transform 0.3s;
-        z-index: 1000;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     .fab:hover {
-        background-color: #f9fafb;
+        background-color: #0056b3;
     }
     .fab:active {
         transform: scale(0.95);
@@ -238,7 +237,7 @@ try {
 <script>
     import { createClient } from '@libsql/client';
 
-    const fab = document.querySelector('.fab');
+    const fabButton = document.getElementById('fabButton');
     const searchBar = document.getElementById('searchBar') as HTMLInputElement;
     const instancesTableBody = document.getElementById('instancesTableBody');
     const bottomSheet = document.getElementById('bottomSheet') as HTMLElement;
@@ -253,9 +252,9 @@ try {
         authToken: (window as any).TURSO_AUTH_TOKEN || '',
     });
 
-    if (fab) {
-        fab.addEventListener('click', () => {
-            window.location.href = '/pin/p';
+    if (fabButton) {
+        fabButton.addEventListener('click', () => {
+            window.location.href = '/pin/prod';
         });
     }
 
